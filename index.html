@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Circuit Arena Fut — Versão Final</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@500;700;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <img class="logo-img" src="logo.png" alt="Circuit Arena Fut">
+  <div>
+    <h1>CIRCUIT ARENA FUT</h1>
+    <div class="subtitle">Chaveamento Oficial • Dupla Eliminação • Ao Vivo</div>
+  </div>
+</header>
+
+<div class="controls">
+  <span class="label">Categoria:</span>
+  <select id="cat" onchange="selectCategory(this.value)">
+    <option value="misto_c">Misto C — 16 duplas</option>
+    <option value="masc_avancado">Masculino Avançado — 16 duplas</option>
+    <option value="masc_interno">Masculino Interno — 16 duplas</option>
+    <option value="masc_iniciante_c">Masculino Iniciante + C — 24 duplas</option>
+    <option value="misto_aprendiz">Misto Aprendiz — 12 duplas</option>
+  </select>
+  <button class="btn" onclick="clearScores()">Limpar placares</button>
+  <button class="btn red" onclick="resetCategory()">Limpar tudo</button>
+  <button class="btn live" onclick="toggleFullscreen()">Modo Telão</button>
+  <button class="btn live" onclick="toggleCleanMode()">Modo Limpo</button>
+  <button class="btn live admin-only" onclick="copyPublicLink()">Copiar link público</button>
+  <span class="public-badge" id="publicBadge">Modo público</span>
+  <span class="label">Zoom:</span>
+  <select id="zoom" onchange="setZoom(this.value)">
+    <option value="0.70" selected>70%</option>
+    <option value="0.80">80%</option>
+    <option value="0.90">90%</option>
+    <option value="1">100%</option>
+  </select>
+</div>
+
+<section class="team-panel">
+  <div class="label">Cadastro das duplas — edite aqui</div>
+  <div class="team-grid" id="teamGrid"></div>
+  <div class="note">Preencha as duplas acima. Depois lance os placares direto nos jogos da tabela. Vencedores e perdedores avançam automaticamente pelo fluxo oficial.</div>
+</section>
+
+<main class="stage">
+  <div class="stage-title" id="title"></div>
+  <div id="board" class="board"><svg class="lines" id="lines"></svg></div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
